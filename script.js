@@ -135,7 +135,7 @@ window.showToast = function(message, type = 'success') {
    MOCK DATA GENERATION
    ========================================================================== */
 function initMockData() {
-    if (!localStorage.getItem('flights')) {
+    if (!localStorage.getItem('flights_v2')) {
         const airlines = ['Emirates', 'Qatar Airways', 'Singapore Airlines', 'Etihad', 'Air India'];
         const logos = {
             'Emirates': 'https://images.unsplash.com/photo-1542296332-2e4473faf563?w=50&h=50&fit=crop', // Placeholder for logo
@@ -171,7 +171,7 @@ function initMockData() {
                 seats: Math.floor(Math.random() * 50) + 1
             });
         }
-        localStorage.setItem('flights', JSON.stringify(mockFlights));
+        localStorage.setItem('flights_v2', JSON.stringify(mockFlights));
     }
     
     if (!localStorage.getItem('bookingHistory')) {
@@ -246,7 +246,7 @@ function initHomePage() {
    PAGE: FLIGHTS SEARCH RESULTS
    ========================================================================== */
 function initFlightsPage() {
-    const flights = JSON.parse(localStorage.getItem('flights')) || [];
+    const flights = JSON.parse(localStorage.getItem('flights_v2')) || [];
     const container = document.getElementById('flights-container');
     
     function renderFlights(flightsToRender) {
@@ -447,7 +447,7 @@ function initBookingPage() {
     // Calculate Fare
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
     const flightId = localStorage.getItem('selectedFlightId');
-    const flights = JSON.parse(localStorage.getItem('flights')) || [];
+    const flights = JSON.parse(localStorage.getItem('flights_v2')) || [];
     const flight = flights.find(f => f.id === flightId);
     
     if(flight && fareSummary) {
@@ -633,7 +633,7 @@ function initOffersPage() {
    ========================================================================== */
 function initFlightDetailsPage() {
     const flightId = localStorage.getItem('selectedFlightId');
-    const flights = JSON.parse(localStorage.getItem('flights')) || [];
+    const flights = JSON.parse(localStorage.getItem('flights_v2')) || [];
     const flight = flights.find(f => f.id === flightId);
     
     if(!flight) {
@@ -668,7 +668,7 @@ function initFlightDetailsPage() {
    PAGE: FLIGHT SCHEDULE
    ========================================================================== */
 function initSchedulePage() {
-    const flights = JSON.parse(localStorage.getItem('flights')) || [];
+    const flights = JSON.parse(localStorage.getItem('flights_v2')) || [];
     const tableBody = document.getElementById('schedule-table-body');
     
     // Assign random statuses
