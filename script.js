@@ -285,7 +285,7 @@ function initFlightsPage() {
                     </div>
                 </div>
                 <div class="flight-price-info">
-                    <h2 style="color: var(--secondary-color); font-size: 2rem;">$${flight.price}</h2>
+                    <h2 style="color: var(--secondary-color); font-size: 2rem;">₹${flight.price}</h2>
                     <span style="color: var(--success-color); font-size: 0.9rem;">${flight.seats} seats left</span>
                     <button class="btn btn-primary" onclick="selectFlight('${flight.id}')">Book Now</button>
                     <button class="btn btn-outline" style="padding: 0.5rem" onclick="toggleFavorite('${flight.id}', this)"><i class="fa-regular fa-heart"></i></button>
@@ -420,7 +420,7 @@ function initSeatSelection() {
             selectedList.innerHTML = selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None selected';
         }
         if(priceDisplay) {
-            priceDisplay.innerText = `$${selectedSeats.length * basePrice}`;
+            priceDisplay.innerText = `₹${selectedSeats.length * basePrice}`;
         }
         localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
     }
@@ -459,20 +459,20 @@ function initBookingPage() {
         fareSummary.innerHTML = `
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem">
                 <span>Base Fare (${selectedSeats.length} Passenger${selectedSeats.length > 1 ? 's' : ''})</span>
-                <span>$${baseFare}</span>
+                <span>₹${baseFare}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem">
                 <span>Taxes & Fees</span>
-                <span>$${taxes}</span>
+                <span>₹${taxes}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem">
                 <span>Seat Charges</span>
-                <span>$${seatCharges}</span>
+                <span>₹${seatCharges}</span>
             </div>
             <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 1rem 0;">
             <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; color: var(--secondary-color)">
                 <span>Total Amount</span>
-                <span id="final-total">$${total}</span>
+                <span id="final-total">₹${total}</span>
             </div>
         `;
     }
@@ -649,7 +649,7 @@ function initFlightDetailsPage() {
                 <p style="color: var(--text-secondary);"><img src="${flight.logo}" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; border-radius: 50%; background: white; padding: 2px;"> ${flight.airline} | Flight ${flight.id}</p>
             </div>
             <div style="text-align: right">
-                <h2 style="color: var(--secondary-color);">$${flight.price}</h2>
+                <h2 style="color: var(--secondary-color);">₹${flight.price}</h2>
                 <p style="color: var(--text-secondary);">${flight.duration} | ${flight.stops === 0 ? 'Non-stop' : flight.stops + ' Stop(s)'}</p>
             </div>
         `;
