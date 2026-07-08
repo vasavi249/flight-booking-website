@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroSky | Premium Flight Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="home-page">
+    
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-logo">
+            <i class="fa-solid fa-plane-departure" style="margin-bottom: 1rem;"></i>
+            <h2 style="font-family: var(--font-secondary); font-size: 2.5rem; letter-spacing: 2px;">AeroSky</h2>
+        </div>
+    </div>
+
+    <!-- Mouse Follower -->
+    <div class="mouse-follower"></div>
+
+    <!-- Loader -->
+    <div class="loader-wrapper hidden">
+        <i class="fa-solid fa-plane plane-loader"></i>
+        <div class="loader-text">SEARCHING FLIGHTS...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/flights.html">Flights</a></li>
+                <li><a href="pages/offers.html">Offers</a></li>
+                <li><a href="pages/my-bookings.html">My Bookings</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 100vh; background: linear-gradient(rgba(26, 35, 126, 0.4), rgba(0, 188, 212, 0.4)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80') center/cover; position: relative; display: flex; flex-direction: column; justify-content: center; padding-top: var(--nav-height); overflow: hidden;">
+        
+        <!-- Animated Lights / Sparkles -->
+        <div class="glow-orb" style="top: 20%; left: 10%; width: 300px; height: 300px; background: rgba(0, 188, 212, 0.3);"></div>
+        <div class="glow-orb" style="bottom: 10%; right: 20%; width: 400px; height: 400px; background: rgba(26, 35, 126, 0.4); animation-delay: 2s;"></div>
+        
+        <div class="sparkle" style="top: 25%; left: 30%; animation-duration: 3s; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 60%; left: 15%; animation-duration: 4s; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 15%; right: 25%; animation-duration: 2.5s; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="top: 70%; right: 10%; animation-duration: 3.5s; animation-delay: 1.5s;"></div>
+        <div class="sparkle" style="top: 40%; right: 40%; animation-duration: 4.5s; animation-delay: 2s;"></div>
+        <div class="sparkle" style="top: 80%; left: 45%; animation-duration: 3s; animation-delay: 0.8s;"></div>
+
+        <div style="position: absolute; top: 20%; right: 10%; animation: float 6s ease-in-out infinite;">
+            <i class="fa-solid fa-plane" style="font-size: 8rem; color: rgba(255,255,255,0.2); transform: rotate(-45deg);"></i>
+        </div>
+        
+        <div class="container" style="text-align: center; color: white;">
+            <h1 class="animate-fade-in text-gradient-animated" style="font-size: 4rem; margin-bottom: 1rem;">Experience the Joy of Flying</h1>
+            <p class="animate-fade-in delay-200" style="font-size: 1.2rem; margin-bottom: 3rem; color: #E2E8F0;">Book your premium flight with world-class amenities and unforgettable comfort.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container" style="position: relative; z-index: 10; margin-top: -150px;">
+        <form id="flight-search-form" class="search-container animate-slide-up delay-400">
+            <div class="trip-type">
+                <label class="radio-group">
+                    <input type="radio" name="trip" value="oneway" checked> One Way
+                </label>
+                <label class="radio-group">
+                    <input type="radio" name="trip" value="round"> Round Trip
+                </label>
+            </div>
+            
+            <div class="search-grid">
+                <div class="input-group">
+                    <label>From</label>
+                    <div class="input-wrapper" style="position:relative;">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <input type="text" id="from" placeholder="City or Airport" required autocomplete="off">
+                        <ul class="autocomplete-list" id="from-list"></ul>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>To</label>
+                    <div class="input-wrapper" style="position:relative;">
+                        <i class="fa-solid fa-plane-arrival"></i>
+                        <input type="text" id="to" placeholder="City or Airport" required autocomplete="off">
+                        <ul class="autocomplete-list" id="to-list"></ul>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Departure</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="date" id="departure" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Return</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <input type="date" id="return">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Passengers & Class</label>
+                    <div class="input-wrapper" style="position:relative;">
+                        <i class="fa-solid fa-user-group"></i>
+                        <input type="text" id="passengers-display" value="1 Adult, Economy" readonly style="cursor: pointer;" required>
+                        
+                        <div class="passenger-popup" id="passenger-popup">
+                            <div class="p-row">
+                                <div>
+                                    <strong>Adults</strong>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary); display: block;">12+ years</span>
+                                </div>
+                                <div class="p-controls">
+                                    <button type="button" class="p-btn" onclick="window.updatePax('adults', -1)">-</button>
+                                    <span id="pax-adults">1</span>
+                                    <button type="button" class="p-btn" onclick="window.updatePax('adults', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="p-row">
+                                <div>
+                                    <strong>Children</strong>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary); display: block;">2-11 years</span>
+                                </div>
+                                <div class="p-controls">
+                                    <button type="button" class="p-btn" onclick="window.updatePax('children', -1)">-</button>
+                                    <span id="pax-children">0</span>
+                                    <button type="button" class="p-btn" onclick="window.updatePax('children', 1)">+</button>
+                                </div>
+                            </div>
+                            <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-color);">
+                            <div class="p-row" style="margin-bottom: 0;">
+                                <strong>Cabin Class</strong>
+                                <select id="cabin-class" onchange="window.updatePaxDisplay()" style="padding: 0.5rem; border-radius: 5px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-primary); cursor: pointer;">
+                                    <option value="Economy">Economy</option>
+                                    <option value="Premium Economy">Premium</option>
+                                    <option value="Business">Business</option>
+                                    <option value="First Class">First Class</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: right; margin-top: 2rem;">
+                <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Search Flights <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Popular Destinations -->
+    <section class="container" style="padding: 6rem 2rem;">
+        <h2 class="section-title">Popular Destinations</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            
+            <!-- Destination Card 1 -->
+            <div class="card dest-card animate-fade-in delay-100">
+                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=800" alt="Dubai" class="dest-img">
+                <div class="dest-content">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Dubai</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center">
+                        <span style="font-weight: 600; color: var(--secondary-color)">From $299</span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.8rem"><i class="fa-solid fa-star" style="color: gold"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination Card 2 -->
+            <div class="card dest-card animate-fade-in delay-200">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80" alt="Paris" class="dest-img">
+                <div class="dest-content">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Paris</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center">
+                        <span style="font-weight: 600; color: var(--secondary-color)">From $450</span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.8rem"><i class="fa-solid fa-star" style="color: gold"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination Card 3 -->
+            <div class="card dest-card animate-fade-in delay-300">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80" alt="New York" class="dest-img">
+                <div class="dest-content">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">New York</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center">
+                        <span style="font-weight: 600; color: var(--secondary-color)">From $380</span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.8rem"><i class="fa-solid fa-star" style="color: gold"></i> 4.7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination Card 4 -->
+            <div class="card dest-card animate-fade-in delay-400">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80" alt="Tokyo" class="dest-img">
+                <div class="dest-content">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Tokyo</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center">
+                        <span style="font-weight: 600; color: var(--secondary-color)">From $550</span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.8rem"><i class="fa-solid fa-star" style="color: gold"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="pages/flights.html" class="btn btn-outline">Explore More Destinations</a>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section style="background: var(--primary-light); padding: 5rem 0; color: white;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+            <div>
+                <i class="fa-solid fa-face-smile" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                <h2 style="font-size: 3rem; color: white">1M+</h2>
+                <p style="color: #94A3B8">Happy Customers</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-plane-circle-check" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                <h2 style="font-size: 3rem; color: white">500+</h2>
+                <p style="color: #94A3B8">Flights Per Day</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-globe" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                <h2 style="font-size: 3rem; color: white">120+</h2>
+                <p style="color: #94A3B8">Countries Covered</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-star" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                <h2 style="font-size: 3rem; color: white">4.9/5</h2>
+                <p style="color: #94A3B8">Customer Rating</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="container" style="padding: 5rem 2rem;">
+        <h2 class="section-title">What Our Passengers Say</h2>
+        <div style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 2rem; padding-bottom: 2rem;">
+            
+            <div class="card" style="min-width: 350px; scroll-snap-align: start; padding: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=50&h=50" alt="Sarah" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="margin: 0;">Sarah Jenkins</h4>
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">United Kingdom</span>
+                    </div>
+                </div>
+                <div style="color: gold; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p style="color: var(--text-secondary); font-style: italic;">"Absolutely fantastic experience. The business class cabin was pristine, and the food was incredible. Best airline I've flown with."</p>
+            </div>
+
+            <div class="card" style="min-width: 350px; scroll-snap-align: start; padding: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=50&h=50" alt="Michael" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="margin: 0;">Michael Chang</h4>
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Singapore</span>
+                    </div>
+                </div>
+                <div style="color: gold; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p style="color: var(--text-secondary); font-style: italic;">"Booking process was a breeze. Loved the interactive seat selection feature. Will definitely book through AeroSky again!"</p>
+            </div>
+
+            <div class="card" style="min-width: 350px; scroll-snap-align: start; padding: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=50&h=50" alt="Emily" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="margin: 0;">Emily Rodriguez</h4>
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Spain</span>
+                    </div>
+                </div>
+                <div style="color: gold; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p style="color: var(--text-secondary); font-style: italic;">"From check-in to landing, everything was perfectly organized. Highly recommend their premium economy."</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container" style="padding: 2rem 2rem 6rem; max-width: 800px;">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <details class="card" style="margin-bottom: 1rem; padding: 1rem 1.5rem; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                How do I book a flight? <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p style="margin-top: 1rem; color: var(--text-secondary); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                Simply use our search form at the top of the page. Select your origin, destination, dates, and passengers, then click search. You can then choose your preferred flight, select your seats, and proceed to payment.
+            </p>
+        </details>
+
+        <details class="card" style="margin-bottom: 1rem; padding: 1rem 1.5rem; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                Can I cancel my ticket? <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p style="margin-top: 1rem; color: var(--text-secondary); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                Yes, you can cancel your ticket from the "My Bookings" section. Please note that cancellation fees may apply depending on your fare class and how close to departure you cancel.
+            </p>
+        </details>
+        
+        <details class="card" style="margin-bottom: 1rem; padding: 1rem 1.5rem; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                How much baggage is allowed? <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p style="margin-top: 1rem; color: var(--text-secondary); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                Economy class includes 1 cabin bag (7kg) and 1 checked bag (23kg). Premium classes include additional allowances. Extra baggage can be purchased during booking.
+            </p>
+        </details>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 style="color: var(--secondary-color); font-size: 1.5rem;"><i class="fa-solid fa-plane"></i> AeroSky</h3>
+                    <p>Experience the most comfortable and luxurious flights worldwide. Your journey begins with us.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="pages/flights.html">Search Flights</a>
+                        <a href="pages/offers.html">Latest Offers</a>
+                        <a href="pages/my-bookings.html">Manage Booking</a>
+                        <a href="pages/about.html">About Us</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Support & Info</h3>
+                    <div class="footer-links">
+                        <a href="pages/contact.html">Contact Us</a>
+                        <a href="pages/baggage.html">Baggage Information</a>
+                        <a href="pages/schedule.html">Flight Schedule</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest offers & updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AeroSky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

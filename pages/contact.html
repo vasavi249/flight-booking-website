@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="contact-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">Get in Touch</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            
+            <!-- Contact Info -->
+            <div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">We'd love to hear from you</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Whether you have a question about your booking, need assistance with special requirements, or just want to give feedback, our team is ready to answer all your questions.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.3rem;">Head Office</h4>
+                            <p style="color: var(--text-secondary);">123 Aviation Boulevard<br>Sky City, SC 90210<br>United States</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.3rem;">Phone Support</h4>
+                            <p style="color: var(--text-secondary);">+1 (800) 123-4567<br>Mon-Sun: 24/7 Support</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.3rem;">Email Us</h4>
+                            <p style="color: var(--text-secondary);">support@aerosky.com<br>info@aerosky.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div>
+                <form class="card" style="padding: 2.5rem;" onsubmit="event.preventDefault(); window.showToast('Message Sent Successfully!'); this.reset();">
+                    <div class="input-group" style="margin-bottom: 1.5rem;">
+                        <label>Your Name</label>
+                        <input type="text" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-primary);" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 1.5rem;">
+                        <label>Email Address</label>
+                        <input type="email" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-primary);" required placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 1.5rem;">
+                        <label>Subject</label>
+                        <input type="text" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-primary);" required placeholder="Booking Inquiry">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 1.5rem;">
+                        <label>Message</label>
+                        <textarea rows="5" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-primary); resize: vertical;" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0">
+                <p>&copy; 2026 AeroSky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers & Promotions | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="offers-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html" class="active">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">Exclusive Offers</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            
+            <div class="card" style="padding: 2rem; position: relative; overflow: hidden; border-top: 4px solid var(--secondary-color)">
+                <div style="position: absolute; top: 1rem; right: -2rem; background: var(--accent-color); color: white; padding: 0.2rem 3rem; transform: rotate(45deg); font-size: 0.8rem; font-weight: bold;">LIMITED</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Student Discount</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Get flat 15% off on base fare for all domestic and international flights.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="background: var(--bg-color); padding: 0.5rem 1rem; border: 1px dashed var(--border-color); border-radius: 5px; font-family: monospace; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;">STUDENT15</div>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="navigator.clipboard.writeText('STUDENT15'); window.showToast('Copied to clipboard!')">Copy</button>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--accent-color);"><i class="fa-regular fa-clock"></i> Ends in: <span class="countdown" style="font-weight: bold;"></span></p>
+            </div>
+
+            <div class="card" style="padding: 2rem; position: relative; overflow: hidden; border-top: 4px solid var(--secondary-color)">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Early Bird Special</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Book 60 days in advance and save up to 20% on First Class tickets.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="background: var(--bg-color); padding: 0.5rem 1rem; border: 1px dashed var(--border-color); border-radius: 5px; font-family: monospace; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;">EARLYBIRD20</div>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="navigator.clipboard.writeText('EARLYBIRD20'); window.showToast('Copied to clipboard!')">Copy</button>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--accent-color);"><i class="fa-regular fa-clock"></i> Ends in: <span class="countdown" style="font-weight: bold;"></span></p>
+            </div>
+
+            <div class="card" style="padding: 2rem; position: relative; overflow: hidden; border-top: 4px solid var(--secondary-color)">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Credit Card Promo</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Flat $50 cashback on using AeroSky Premium Visa Credit Cards.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="background: var(--bg-color); padding: 0.5rem 1rem; border: 1px dashed var(--border-color); border-radius: 5px; font-family: monospace; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;">VISA50</div>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="navigator.clipboard.writeText('VISA50'); window.showToast('Copied to clipboard!')">Copy</button>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--accent-color);"><i class="fa-regular fa-clock"></i> Ends in: <span class="countdown" style="font-weight: bold;"></span></p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="booking-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">Passenger Details</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 350px; gap: 3rem;">
+            
+            <!-- Form -->
+            <div>
+                <form id="passenger-form" class="card" style="padding: 2rem;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color)">Primary Passenger</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="input-group">
+                            <label>Full Name (as per Passport)</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="fullname" required placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Date of Birth</label>
+                            <div class="input-wrapper">
+                                <input type="date" id="dob" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="phone" required placeholder="+1 234 567 8900">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div class="input-group">
+                            <label>Passport Number</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="passport" required placeholder="A1234567">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Nationality</label>
+                            <div class="input-wrapper">
+                                <select id="nationality" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AE">United Arab Emirates</option>
+                                    <option value="IN">India</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Confirm & Pay</button>
+                </form>
+            </div>
+
+            <!-- Fare Summary -->
+            <div>
+                <div class="card" style="padding: 2rem; position: sticky; top: 120px;">
+                    <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Fare Summary</h3>
+                    
+                    <div id="fare-summary">
+                        <!-- Populated by JS -->
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem">Have a promo code?</h4>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" placeholder="Promo Code" style="flex: 1; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-primary);">
+                            <button type="button" class="btn btn-outline" style="padding: 0.8rem 1rem;">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check modal-icon"></i>
+            <h2 style="margin-bottom: 1rem; color: var(--text-primary)">Flight Booked Successfully!</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Your booking ID is <strong id="modal-booking-id" style="color: var(--primary-color)"></strong>. A confirmation email has been sent to you.</p>
+            <a href="my-bookings.html" class="btn btn-primary" style="width: 100%;">Go to My Bookings</a>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

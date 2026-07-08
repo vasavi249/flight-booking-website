@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="my-bookings-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html" class="active">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">My Bookings</h2>
+        
+        <div id="bookings-container" style="max-width: 800px; margin: 0 auto;">
+            <!-- Bookings injected by JS -->
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

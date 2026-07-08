@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="flight-details-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2 class="section-title" style="margin-bottom: 0;">Flight Details</h2>
+            <a href="flights.html" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-solid fa-arrow-left"></i> Back to Results</a>
+        </div>
+        
+        <div class="card" style="padding: 3rem; margin-bottom: 2rem;">
+            <div id="detailed-flight-header" style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;">
+                <!-- Filled by JS -->
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color)"><i class="fa-solid fa-plane-circle-check"></i> Aircraft & Terminal</h3>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; justify-content: space-between;"><strong>Aircraft Type:</strong> <span id="fd-aircraft">Boeing 777-300ER</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>Departure Terminal:</strong> <span id="fd-dep-term">T3</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>Arrival Terminal:</strong> <span id="fd-arr-term">T1</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>Boarding Gate:</strong> <span id="fd-gate">A15 (Estimated)</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color)"><i class="fa-solid fa-suitcase-rolling"></i> Baggage & Amenities</h3>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; justify-content: space-between;"><strong>Cabin Baggage:</strong> <span id="fd-cabin-bag">1 x 7kg</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>Check-in Baggage:</strong> <span id="fd-check-bag">2 x 23kg</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>In-flight Meal:</strong> <span id="fd-meal"><i class="fa-solid fa-check" style="color: var(--success-color)"></i> Included</span></li>
+                        <li style="display: flex; justify-content: space-between;"><strong>Wi-Fi:</strong> <span id="fd-wifi"><i class="fa-solid fa-check" style="color: var(--success-color)"></i> Available (Paid)</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; background: var(--bg-color); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--secondary-color);">
+                <h4>Cancellation Policy</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Cancellations made within 24 hours of booking are fully refundable. Cancellations made up to 48 hours before departure incur a $50 fee. Tickets are non-refundable if cancelled less than 48 hours before departure.</p>
+            </div>
+            
+            <div style="text-align: right; margin-top: 3rem;">
+                <button id="btn-proceed-seat" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Select Seats <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0">
+                <p>&copy; 2026 AeroSky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

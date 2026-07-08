@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Schedule | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status-ontime { background: rgba(42, 157, 143, 0.1); color: var(--success-color); }
+        .status-delayed { background: rgba(230, 57, 70, 0.1); color: var(--accent-color); }
+        .status-boarding { background: rgba(212, 175, 55, 0.1); color: var(--secondary-color); }
+        .status-landed { background: rgba(107, 114, 128, 0.1); color: var(--text-secondary); }
+    </style>
+</head>
+<body id="schedule-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">Live Flight Schedule</h2>
+        
+        <div class="card" style="padding: 2rem;">
+            
+            <!-- Search bar -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; max-width: 500px;">
+                <div class="input-wrapper" style="flex: 1;">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="schedule-search" placeholder="Search by Flight Number or City...">
+                </div>
+                <button class="btn btn-primary" onclick="window.filterSchedule()">Search</button>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
+                    <thead>
+                        <tr style="background: var(--bg-color); border-bottom: 2px solid var(--border-color);">
+                            <th style="padding: 1.2rem 1rem;">Flight</th>
+                            <th style="padding: 1.2rem 1rem;">Airline</th>
+                            <th style="padding: 1.2rem 1rem;">From</th>
+                            <th style="padding: 1.2rem 1rem;">To</th>
+                            <th style="padding: 1.2rem 1rem;">Departure</th>
+                            <th style="padding: 1.2rem 1rem;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-table-body">
+                        <!-- Filled by JS -->
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0">
+                <p>&copy; 2026 AeroSky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

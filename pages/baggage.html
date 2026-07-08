@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baggage Information | AeroSky</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="baggage-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism scrolled" style="background: var(--bg-secondary);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-plane"></i> AeroSky
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="my-bookings.html">My Bookings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 5rem; min-height: 80vh;">
+        <h2 class="section-title">Baggage Information</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 900px; margin: 0 auto;">
+            
+            <div class="card animate-fade-in" style="padding: 3rem;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fa-solid fa-briefcase"></i> Cabin Baggage</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">All passengers are entitled to bring one piece of hand luggage and one small personal item (such as a laptop bag or handbag) on board.</p>
+                <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-primary);">
+                    <li style="margin-bottom: 0.5rem;">Maximum dimensions: 55 x 38 x 20 cm (22 x 15 x 8 inches)</li>
+                    <li style="margin-bottom: 0.5rem;">Maximum weight: 7kg (15lbs) for Economy, 14kg (30lbs) for Business/First</li>
+                    <li style="margin-bottom: 0.5rem;">Must fit in the overhead bin or under the seat in front of you</li>
+                </ul>
+            </div>
+
+            <div class="card animate-fade-in delay-200" style="padding: 3rem;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fa-solid fa-suitcase-rolling"></i> Check-in Baggage</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Check-in baggage allowances vary depending on your travel class and route.</p>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="background: var(--bg-color); border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 1rem;">Travel Class</th>
+                                <th style="padding: 1rem;">Allowance</th>
+                                <th style="padding: 1rem;">Max Weight per bag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 1rem; font-weight: 600;">Economy</td>
+                                <td style="padding: 1rem;">2 Pieces</td>
+                                <td style="padding: 1rem;">23kg (50lbs)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 1rem; font-weight: 600;">Premium Economy</td>
+                                <td style="padding: 1rem;">2 Pieces</td>
+                                <td style="padding: 1rem;">23kg (50lbs)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 1rem; font-weight: 600;">Business</td>
+                                <td style="padding: 1rem;">2 Pieces</td>
+                                <td style="padding: 1rem;">32kg (70lbs)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; font-weight: 600;">First Class</td>
+                                <td style="padding: 1rem;">3 Pieces</td>
+                                <td style="padding: 1rem;">32kg (70lbs)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card animate-fade-in delay-400" style="padding: 3rem; background: rgba(230, 57, 70, 0.05); border-left: 4px solid var(--accent-color);">
+                <h3 style="color: var(--accent-color); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fa-solid fa-triangle-exclamation"></i> Restricted Items</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">For the safety of all passengers, the following items are strictly prohibited in both cabin and check-in baggage:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-primary);">
+                        <li>Flammable liquids and solids</li>
+                        <li>Explosives and fireworks</li>
+                        <li>Corrosive materials</li>
+                    </ul>
+                    <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-primary);">
+                        <li>Lithium batteries (loose)</li>
+                        <li>Radioactive materials</li>
+                        <li>Toxic or infectious substances</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0">
+                <p>&copy; 2026 AeroSky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
