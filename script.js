@@ -154,7 +154,7 @@ function initMockData() {
             while (from === to) to = airports[Math.floor(Math.random() * airports.length)];
             
             const hours = Math.floor(Math.random() * 12) + 2;
-            const price = Math.floor(Math.random() * 8000) + 3000;
+            const price = Math.floor(Math.random() * 10000) + 5000; // Min ₹5,000 to Max ₹14,999
             const stops = Math.floor(Math.random() * 3);
             
             mockFlights.push({
