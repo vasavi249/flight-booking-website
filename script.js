@@ -154,7 +154,7 @@ function initMockData() {
             while (from === to) to = airports[Math.floor(Math.random() * airports.length)];
             
             const hours = Math.floor(Math.random() * 12) + 2;
-            const price = Math.floor(Math.random() * 800) + 200;
+            const price = Math.floor(Math.random() * 8000) + 3000;
             const stops = Math.floor(Math.random() * 3);
             
             mockFlights.push({
@@ -369,7 +369,7 @@ function initSeatSelection() {
     const rows = 15;
     const cols = ['A', 'B', 'C', 'D', 'E', 'F'];
     let selectedSeats = [];
-    const basePrice = 50;
+    const basePrice = 1500;
     
     for(let i = 1; i <= rows; i++) {
         const rowDiv = document.createElement('div');
